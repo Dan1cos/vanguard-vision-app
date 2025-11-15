@@ -38,6 +38,7 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
   useEffect(() => {
     const fetchMapData = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get<MapData[]>(apiUrl);
         setMapData(response.data);
         setError(null);
