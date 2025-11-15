@@ -25,7 +25,7 @@ interface OrdnanceMapProps {
 }
 
 export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
-  apiUrl = 'https://api.example.com/map-data',
+  apiUrl = "https://api.example.com/map-data",
   initialRegion = {
     latitude: 51.5074,
     longitude: -0.1278,
@@ -45,7 +45,7 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
         setMapData(response.data);
         setError(null);
       } catch (err) {
-        setError('Failed to fetch map data');
+        setError("Failed to fetch map data");
         console.error(err);
       } finally {
         setIsLoading(false);
@@ -100,17 +100,17 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   errorContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   errorText: {
-    color: 'red',
+    color: "red",
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Montserrat',
