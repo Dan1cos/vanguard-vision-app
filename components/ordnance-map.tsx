@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 
 interface MapData {
   coordinates: {
@@ -23,7 +23,7 @@ interface OrdnanceMapProps {
 }
 
 export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
-  apiUrl = 'https://api.example.com/map-data',
+  apiUrl = "https://api.example.com/map-data",
   initialRegion = {
     latitude: 51.5074,
     longitude: -0.1278,
@@ -33,7 +33,7 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
 }) => {
   const [mapData, setMapData] = useState<MapData[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchMapData = async () => {
@@ -42,14 +42,14 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
         setMapData(response.data);
         setError(null);
       } catch (err) {
-        setError('Failed to fetch map data');
+        setError("Failed to fetch map data");
         console.error(err);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchMapData();
+    //fetchMapData();
   }, [apiUrl]);
 
   if (isLoading) {
@@ -71,10 +71,7 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
 
   return (
     <View style={styles.container}>
-      <MapView
-        style={styles.map}
-        initialRegion={initialRegion}
-      >
+      <MapView style={styles.map} initialRegion={initialRegion}>
         {mapData.map((item, index) => (
           <Marker
             key={index}
@@ -97,18 +94,18 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   errorContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   errorText: {
-    color: 'red',
+    color: "red",
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });

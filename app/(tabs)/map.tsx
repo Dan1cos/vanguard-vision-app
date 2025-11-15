@@ -1,10 +1,10 @@
 import { OrdnanceMap } from "components/ordnance-map"; // Adjust path if needed
 import React, { JSX } from "react";
-import { StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 export default function TabTwoScreen(): JSX.Element {
   return (
     <View style={styles.container}>
-      <OrdnanceMap />
+      {Platform.OS !== "web" && <OrdnanceMap />}
     </View>
   );
 }
