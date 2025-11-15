@@ -1,12 +1,14 @@
+import { ThemedView } from '@/components/themed-view';
 import OrdnanceMarker from "components/ordnance-marker";
 import React, { JSX } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
+
 export default function TabTwoScreen(): JSX.Element {
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       {/* <OrdnanceMap /> */}
       <OrdnanceMarker />
-    </View>
+    </ThemedView>
   );
 }
 

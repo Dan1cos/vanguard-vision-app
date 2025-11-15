@@ -1,3 +1,4 @@
+import { ThemedView } from "@/components/themed-view";
 import React, { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import MapView, { Circle, Marker } from "react-native-maps";
@@ -74,7 +75,7 @@ export default function OrdnanceExample() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       {locations && (
         <MapView
           style={styles.map}
@@ -102,7 +103,7 @@ export default function OrdnanceExample() {
           ))}
         </MapView>
       )}
-    </View>
+    </ThemedView>
   );
 }
 
