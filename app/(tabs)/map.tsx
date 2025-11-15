@@ -1,3 +1,9 @@
+import { Text, View } from "react-native";
+
 export default function TabTwoScreen() {
-  return <div>Empty tab</div>;
+  return (
+    <View>
+      <Text>Empty tab</Text>
+    </View>
+  );
 }

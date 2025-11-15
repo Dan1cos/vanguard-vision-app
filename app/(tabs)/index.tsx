@@ -1,9 +1,10 @@
 import ImageUploader from "@/components/image-uploader";
+import { View } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <div>
+    <View>
       <ImageUploader />
-    </div>
+    </View>
   );
 }
