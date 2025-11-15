@@ -33,11 +33,12 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
 }) => {
   const [mapData, setMapData] = useState<MapData[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchMapData = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get<MapData[]>(apiUrl);
         setMapData(response.data);
         setError(null);
@@ -49,7 +50,7 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
       }
     };
 
-    fetchMapData();
+    //fetchMapData();
   }, [apiUrl]);
 
   if (isLoading) {
