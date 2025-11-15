@@ -1,5 +1,6 @@
+import { ThemedView } from '@/components/themed-view';
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import MapView, { Circle, Marker } from 'react-native-maps';
 
 export default function OrdnanceExample() {
@@ -11,7 +12,7 @@ export default function OrdnanceExample() {
   const explosionRadius = 200; // meters
 
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       <MapView
         style={styles.map}
         initialRegion={{
@@ -33,7 +34,7 @@ export default function OrdnanceExample() {
           fillColor="rgba(255,0,0,0.2)"
         />
       </MapView>
-    </View>
+    </ThemedView>
   );
 }
 

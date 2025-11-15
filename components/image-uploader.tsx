@@ -1,7 +1,9 @@
+import { ThemedButton } from "@/components/themed-button";
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
-import { Alert, Button, Image, Platform, StyleSheet, View } from "react-native";
-import { ThemedText } from "./themed-text";
+import { Alert, Image, Platform, StyleSheet } from "react-native";
 
 const ImageUploader = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -86,8 +88,8 @@ const ImageUploader = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Button title="Pick & Upload Image" onPress={openChoiceDialog} />
+    <ThemedView style={styles.container}>
+      <ThemedButton title="Pick & Upload Image" onPress={openChoiceDialog} accent />
 
       {image && <Image source={{ uri: image }} style={styles.imagePreview} />}
       {classifiedObject && (
@@ -96,7 +98,7 @@ const ImageUploader = () => {
           {classifiedObject.confidence}
         </ThemedText>
       )}
-    </View>
+    </ThemedView>
   );
 };
 

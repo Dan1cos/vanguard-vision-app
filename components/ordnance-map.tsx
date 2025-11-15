@@ -1,6 +1,8 @@
+import { ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 interface MapData {
@@ -55,23 +57,23 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
 
   if (isLoading) {
     return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
-        <Text>Loading map data...</Text>
-      </View>
+      <ThemedView style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color='#eda43fff' />
+        <ThemedText>Loading map data...</ThemedText>
+      </ThemedView>
     );
   }
 
   if (error) {
     return (
-      <View style={styles.errorContainer}>
-        <Text style={styles.errorText}>{error}</Text>
-      </View>
+      <ThemedView style={styles.errorContainer}>
+        <ThemedText style={styles.errorText}>{error}</ThemedText>
+      </ThemedView>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       <MapView
         style={styles.map}
         initialRegion={initialRegion}
@@ -85,7 +87,7 @@ export const OrdnanceMap: React.FC<OrdnanceMapProps> = ({
           />
         ))}
       </MapView>
-    </View>
+    </ThemedView>
   );
 };
 
@@ -111,5 +113,6 @@ const styles = StyleSheet.create({
     color: 'red',
     fontSize: 18,
     textAlign: 'center',
+    fontFamily: 'Montserrat',
   },
 });
