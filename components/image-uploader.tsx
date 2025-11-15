@@ -89,7 +89,11 @@ const ImageUploader = () => {
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedButton title="Pick & Upload Image" onPress={openChoiceDialog} accent />
+      <ThemedButton
+        title="Pick & Upload Image"
+        onPress={openChoiceDialog}
+        accent
+      />
 
       {image && <Image source={{ uri: image }} style={styles.imagePreview} />}
       {classifiedObject && (
@@ -106,6 +110,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     paddingTop: 40,
+    marginTop: 80,
   },
   imagePreview: {
     width: 250,

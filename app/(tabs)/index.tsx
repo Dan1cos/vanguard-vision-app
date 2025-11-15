@@ -1,10 +1,17 @@
 import ImageUploader from "@/components/image-uploader";
-import { View } from "react-native";
+import { ThemedView } from "@/components/themed-view";
+import { StyleSheet } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <View>
+    <ThemedView style={styles.container}>
       <ImageUploader />
-    </View>
+    </ThemedView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

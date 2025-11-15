@@ -4,9 +4,10 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { Slot } from "expo-router";
-import { ActivityIndicator, StyleSheet, View } from "react-native";
+import { ActivityIndicator, StyleSheet } from "react-native";
 import "react-native-reanimated";
 
+import { ThemedView } from "@/components/themed-view";
 import { useFontsLoaded } from "@/constants/fonts";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 
@@ -20,9 +21,14 @@ export default function RootLayout() {
 
   if (!fontsLoaded) {
     return (
-      <View style={[styles.loadingContainer, { backgroundColor: colorScheme === "dark" ? "#151718" : "#dfdcc8" }]}>
+      <ThemedView
+        style={[
+          styles.loadingContainer,
+          { backgroundColor: colorScheme === "dark" ? "#151718" : "#dfdcc8" },
+        ]}
+      >
         <ActivityIndicator size="large" color="#ff9800" />
-      </View>
+      </ThemedView>
     );
   }
 
